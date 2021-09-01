@@ -1,35 +1,639 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <title>Shower Presentation Engine</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="shower/ribbon/styles/styles.css">
-    <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
-    </style>
+  <title>Необычные браузерные API</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+  <link rel="stylesheet" href="highlight/styles/github.css">
+  <style>
+    .shower {
+        --slide-ratio: calc(16 / 9);
+    }
+</style>
 </head>
+
 <body class="shower list">
-
-    <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
-    </header>
-
-    <section class="slide">
-        <!-- Create your first slide -->
-    </section>
-
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
-
-    <div class="progress"></div>
-
-    <script src="node_modules/@shower/core/dist/shower.js"></script>
-    <!-- Copyright © 2021 Yours Truly, Famous Inc. -->
-
+  <header class="caption">
+    <h1>Необычные браузерные API</h1>
+  </header>
+  <section id="cver" class="slide">
+    <h2>Необычные браузерные API</h2>
+    <p>Саша Шинкевич (<a href="https://twitter.com/neesoglasnaja" target="_blank">@neesoglasnaja</a>)</p>
+    <img src="pictures/cover.jpg" class="cover width" />
+  </section>
+  <section id="" class="slide">
+    <div style="margin-left: 50%; width: 60%; font-size: 0.8em">
+      <h2>Кто я?</h2>
+      <ul>
+        <li class="next">Верстала ещё на таблицах</li>
+        <li class="next">jQuery, VanillaJS, AngularJS, React, Angular и Vue.js</li>
+        <li class="next">И Node.js</li>
+        <li class="next">Была начальником отдела фронтенда</li>
+        <li class="next">Выгорела</li>
+        <li class="next">Пока счастливая безработная</li>
+      </ul>
+      <p style="margin-top: 70px" class="next"><img src="pictures/minskcss.png" class="logo"><img
+          src="pictures/minskjs.png" class="logo"><img src="pictures/css-minsk-js.svg"
+          style="background-color: #2b2727; height: 75px" class="logo"><img src="pictures/fc.png" class="logo"></p>
+    </div><img src="pictures/about-cover.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2 style="color:#fff; font-size: 50px; padding-left: 50%; padding-top: 10%">Что же такое эти ваши &#171;браузерные
+      API&#187?</h2><img src="pictures/philosoraptor.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2>В браузере есть только...</h2><img src="pictures/browser.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2>Браузерные API</h2><a href="https://developer.mozilla.org/en-US/docs/Web/API#specifications"
+      class="copyright">Web APIs | MDN</a><img src="pictures/apis.jpg" class="cover" /><img src="pictures/confused.gif"
+      style="position: absolute; left: 30%; bottom: -10%; width: 500px" class="next">
+  </section>
+  <section id="" class="slide">
+    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Манипуляции DOM и
+      стилями</h2><img src="pictures/blur_cover.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px" class="shout">Как узнать, что пользователь &#171;зумил&#187 страницу?</h2><img
+      src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <div style="display:flex">
+      <iframe height="500" width="400" style="" scrolling="no"
+        title="Simple browser zoom detect with jquery #codevember"
+        src="https://codepen.io/reinis/embed/RooGOE?default-tab=result&amp;theme-id=light" frameborder="no"
+        loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a
+          href="https://codepen.io/reinis/pen/RooGOE">Simple browser zoom detect with jquery #codevember</a> by Reinis
+        (<a href="https://codepen.io/reinis">@reinis</a>)
+        on <a href="https://codepen.io">CodePen</a>.
+      </iframe><span class="next">
+        <video src="pictures/zoom_bad.mp4" autoplay loop width="40%" style="margin-left: 50px"></video><img
+          src="pictures/xz.jpg" style="position:absolute; right: 0; bottom: 0; width: 300px"></span>
+    </div><a href="https://codepen.io/reinis/pen/RooGOE" class="copyright">Simple browser zoom detect with jquery
+      #codevember</a>
+  </section>
+  <section id="" class="slide">
+    <iframe height="700" style="width: 150%; transform: scale(0.65); transform-origin: 0 0" scrolling="no"
+      src="https://bokand.github.io/viewport/index.html"> </iframe><a
+      href="https://bokand.github.io/viewport/index.html" class="copyright">Visual vs. Layout Viewport Demo</a>
+  </section>
+  <section id="" class="slide">
+    <h2>VisualViewport API</h2>
+    <div style="display:flex">
+      <pre style="font-size: 0.8em; width: 50%"><code class="js">VisualViewport = {
+  // Read-only
+  offsetLeft
+  offsetTop
+  pageLeft
+  pageTop
+  width  
+  height
+  scale
+}</code></pre>
+      <pre style="font-size: 0.9em; width: 50%" class="next"><code> 
+// Как получить значение зума*
+const scale = VisualViewport.scale</code></pre>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <div style="display:flex">
+      <iframe height="500" style="width: 60%" scrolling="no"
+        src="https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html"> </iframe>
+      <video src="pictures/zoom_no.mp4" loop autoplay width="25%" style="margin-left: 50px"></video>
+    </div><a href="https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html" class="copyright">Example with
+      hide on zoom</a>
+  </section>
+  <section id="" class="slide"><img src="pictures/viewport_use.jpg" class="cover" /><a
+      href="https://caniuse.com/mdn-api_visualviewport" class="copyright">Caniuse — VisualViewport API</a>
+  </section>
+  <section id="" class="slide">
+    <h2>Манипуляции DOM и стилями</h2>
+    <div class="double">
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">DOM</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Counter_Styles">CSS Counter Styles</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API">CSS Font Loading API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API">CSS Painting API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API ">CSS Typed OM</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model">CSSOM</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API">HTML Drag and Drop API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Intersection Observer
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">Page Visibility API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">Pointer events</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API">Pointer Lock API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API">Resize Observer API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events">Touch events</a></div>
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API">Visual Viewport
+            API</a></mark>
+      </div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2>Манипуляции DOM и стилями</h2>
+    <div class="double">
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">DOM</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Counter_Styles">CSS Counter Styles</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API">CSS Font
+          Loading API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API">CSS Painting API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Typed_OM_API ">CSS Typed OM</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model">CSSOM</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API">HTML Drag and Drop API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">Intersection Observer
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">Page Visibility API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events">Pointer
+          events</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API">Pointer Lock
+          API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API">Resize
+          Observer API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events">Touch events</a>
+      </div>
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API">Visual Viewport
+            API</a></mark>
+      </div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Передача данных и
+      состояние сети</h2><img src="pictures/blur_cover.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px" class="shout">Как общаться между вкладками, не&nbsp;используя сеть?</h2><img
+      src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2>Broadcast Channel API</h2><img src="pictures/broadcastchannel.png" style="width: 80%; margin-left: 100px">
+  </section>
+  <section id="" class="slide">
+    <div style="display:flex; margin-left: 30px">
+      <iframe height="450" style="width: 400px" scrolling="no"
+        src="https://web-api-examples.github.io/broadcastchannel.html"> </iframe>
+      <iframe height="450" style="width: 400px; margin-left: 30px" scrolling="no"
+        src="https://web-api-examples.github.io/broadcastchannel.html"></iframe>
+    </div><a href="https://web-api-examples.github.io/broadcastchannel.html" class="copyright">Demo -
+      BroadcastChannel</a>
+  </section>
+  <section id="" class="slide">
+    <h2>Broadcast Channel API</h2>
+    <pre><code class="js">const bc = new BroadcastChannel('test_channel')</code></pre>
+    <pre class="next"><code class="js">bc.postMessage('This is a test message.')</code></pre>
+    <pre class="next"><code class="js">bc.onmessage = function (ev) { ... }</code></pre>
+    <pre class="next"><code class="js">bc.close();</code></pre>
+  </section>
+  <section id="" class="slide"><img src="pictures/broadcast_use.jpg" class="cover" /><a
+      href="https://caniuse.com/broadcastchannel" class="copyright">Caniuse — BroadcastChannel</a>
+  </section>
+  <section id="" class="slide">
+    <h2>Передача данных и состояние сети</h2>
+    <div class="double">
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Fetch_API">Background Fetch API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API">Beacon API</a></div>
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API">Broadcast Channel
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Content_Index_API">Content Index API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API">Channel Messaging API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API">History API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API">Network Information
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-sent events</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API">Streams API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web
+          Periodic Background Synchronization API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL_API">URL API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2>Передача данных и состояние сети</h2>
+    <div class="double">
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Fetch_API">Background Fetch API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API">Beacon API</a></div>
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API">Broadcast Channel
+            API</a></mark>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Content_Index_API">Content
+          Index API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API">Channel Messaging API</a>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API">History API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API">Network Information
+          API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service
+          Worker API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-sent events</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API">Streams API</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web
+          Periodic Background Synchronization API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL_API">URL API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a>
+      </div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Графика и медиа
+    </h2><img src="pictures/blur_cover.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Можно ли распознать
+      QR&#8209;код&nbsp;из&nbsp;браузера?</h2><img src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2 class="shout"><a href="https://qrsnapper.appspot.com/">Считываем код телефоном</a></h2><a
+      href="https://dzone.com/articles/barcode-detection-using-the-shape-detection-api" class="copyright">Barcode
+      Detection Using the Shape Detection API</a>
+  </section>
+  <section id="" class="slide">
+    <video src="pictures/qrcode.mp4" autoplay loop width="230px" style="margin-left: 300px"></video>
+  </section>
+  <section id="" class="slide">
+    <h2>Barcode Detection API</h2>
+    <pre><code>const barcodeDetector = new BarcodeDetector();</code></pre>
+    <pre class="next"> <code>barcodeDetector.detect(image)
+  .then(barcodes => { ... })
+  .catch(e => { ... });</code></pre>
+  </section>
+  <section id="" class="slide"><img src="pictures/barcode_use.jpg" class="cover" /><a
+      href="https://caniuse.com/mdn-api_barcodedetector" class="copyright">Caniuse — BarcodeDetector API</a>
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Хочу смотреть видео и&nbsp;одновременно смотреть
+      другие вкладки</h2><img src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <iframe height="450" style="width: 520px; margin-left: 160px" scrolling="no" title="Picture-in-Picture demo"
+      src="https://codepen.io/ayoisaiah/embed/dyyeQVG?default-tab=result&amp;theme-id=light" frameborder="no"
+      loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a
+        href="https://codepen.io/ayoisaiah/pen/dyyeQVG">Picture-in-Picture demo</a> by Ayooluwa (<a
+        href="https://codepen.io/ayoisaiah">@ayoisaiah</a>)
+      on <a href="https://codepen.io">CodePen</a>.
+    </iframe>
+  </section>
+  <section id="" class="slide">
+    <h2>Picture-in-Picture API</h2>
+    <pre><code class="js">// Открыть окно с видео
+video(src="").requestPictureInPicture()
+          // .catch(e => { ... });</code></pre>
+    <pre class="js next"><code>// Закрыть окно с видео
+video(src="").exitPictureInPicture()
+           //.catch(e => { ... });</code></pre>
+  </section>
+  <section id="" class="slide"><img src="pictures/picture-in_use.jpg" class="cover" /><a
+      href="https://caniuse.com/picture-in-picture" class="copyright">Caniuse — Picture-in-Picture API</a>
+  </section>
+  <section id="" class="slide">
+    <h2>Графика и медиа</h2>
+    <div style="folt-size: 0.7em; line-height: 1.5" class="double">
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API">Barcode Detection
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Encrypted_Media_Extensions_API">Encrypted Media
+          Extensions API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API">Fullscreen API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Capabilities_API">Media Capabilities API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API">Media Session API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API">Media Source API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API">Media Stream</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API">MediaStream Recording
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Image_Capture_API">MediaStream Image
+          Capture API</a></div>
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API">Picture-in-Picture
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API">Presentation API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API">Screen Capture API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API">Screen Wake Lock API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API">WebRTC API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">Web Speech API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">Web Video Text Tracks Format</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API"
+          style="text-decoration:line-through ">WebVR API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API">WebXR Device API</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2>Графика и медиа</h2>
+    <div style="folt-size: 0.7em; line-height: 1.5" class="double">
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API">Barcode Detection
+            API</a></mark>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a>
+      </div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Encrypted_Media_Extensions_API">Encrypted Media
+          Extensions API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API">Fullscreen API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Capabilities_API">Media
+          Capabilities API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API">Media Session API</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API">Media Source API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API">Media
+          Stream</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API">MediaStream Recording
+          API</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Image_Capture_API">MediaStream Image
+          Capture API</a></div>
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API">Picture-in-Picture
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API">Presentation API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API">Screen
+          Capture API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API">Screen Wake Lock API</a>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web
+          Animations API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API">WebRTC API</a>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">Web Speech
+          API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">Web Video Text
+          Tracks Format</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API"
+          style="text-decoration:line-through ">WebVR API</a> <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API">WebXR Device API</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Управление
+      устройствами</h2><img src="pictures/blur_cover.jpg" class="cover" />
+  </section>
+  <section id="" class="slide"><img src="pictures/makeev_iot.png" class="cover" /><a href="https://youtu.be/9mv-8gSyalU"
+      class="copyright">Я и ИоТ, Вадим Макеев (Youtube)</a>
+  </section>
+  <section id="" class="slide"><img src="pictures/midi.png" class="cover" /><a href="https://youtu.be/-Ml7J3ocqUo"
+      class="copyright">George Mandis — Make More Than Music with Tiny Computers, JavaScript and MIDI (Youtube)</a>
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Как заставить телефон делать &#171;вж-вж-вж-вж&#187;?
+    </h2><img src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide  shout">
+    <h2 class="shout"><a href="https://neesoglasnaja.github.io/DiceRoller/dist/pwa/index.html">Бросим кубики</a></h2>
+  </section>
+  <section id="" class="slide  shout"><img src="pictures/dices.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2>Vibration API</h2>
+    <pre><code>if ("vibrate" in navigator) {
+  ...
+  navigator.vibrate(200) // одиночная вибрация
+  navigator.vibrate([100,30,100,30,...]) // последовательность
+  ...
+}</code></pre>
+  </section>
+  <section id="" class="slide"><img src="pictures/vibration_use.jpg" class="cover" /><a
+      href="https://caniuse.com/vibration" class="copyright">Caniuse — Vibration API</a>
+  </section>
+  <section id="" class="slide">
+    <h2>Управление устройствами</h2>
+    <div class="double">
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API">Gamepad API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">Notifications API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API">Permissions API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API">Push API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API"
+          style="text-decoration:line-through">Battery Status API</a> <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Events"
+          style="text-decoration:line-through">Proximity Events</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs">Sensor APIs</a></div>
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API">Vibration API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API">Web Bluetooth API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API">WebHID API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_MIDI_API">Web MIDI API</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2>Управление устройствами</h2>
+    <div class="double">
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API">Gamepad API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation
+          API</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API">Notifications API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API">Permissions
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API">Push API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API"
+          style="text-decoration:line-through">Battery Status API</a> <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Events"
+          style="text-decoration:line-through">Proximity Events</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs">Sensor APIs</a></div>
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API">Vibration API</a></mark>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API">Web
+          Bluetooth API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API">WebHID API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_MIDI_API">Web MIDI API</a>
+      </div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Хранение
+      и&nbsp;управление данными</h2><img src="pictures/blur_cover.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Как оградить сайт от &#171;опасного кода&#187
+      в&nbsp;комментариях?</h2><img src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide"><img src="pictures/sanitize_npm.jpg" class="cover" /><a
+      href="https://www.npmjs.com/package/sanitize-html" class="copyright">sanitize-html </a>
+  </section>
+  <section id="" class="slide">
+    <h2 class="shout"><a href="https://sanitizer-api.dev/">Запретим опасный код</a></h2>
+  </section>
+  <section id="" class="slide"><img src="pictures/sanitizer_use.jpg" class="cover" /><a
+      href="https://caniuse.com/mdn-api_sanitizer" class="copyright">Caniuse — Sanitizer API</a>
+  </section>
+  <section id="" class="slide">
+    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Хочу доступ к контактам, как в мобильных приложениях
+    </h2><img src="pictures/what-if.jpg" class="cover" />
+  </section>
+  <section id="" class="slide">
+    <video src="pictures/contact.mp4" width="230" style="margin-left: 350px" loop autoplay></video><a
+      href="https://contact-picker.glitch.me/" class="copyright">Contact Picker API Demo </a>
+  </section>
+  <section id="" class="slide">
+    <h2>Contact Picker API</h2><span style="font-size: 0.9em">
+      <pre><code>const supported = ('contacts' in navigator
+   && 'ContactsManager' in window);</code></pre>
+      <pre class="next"><code>const props = ['name', 'email', 'tel', 'address', 'icon'];
+const opts = { multiple: true };
+ 
+navigator.contacts.select(props, opts)
+  .then(contacts => { ... })
+  .catch(e => { ... })</code></pre></span>
+  </section>
+  <section id="" class="slide"><img src="pictures/contacts_use.jpg" class="cover" /><a
+      href="https://developer.mozilla.org/en-US/docs/Web/API/ContactsManager/getProperties"
+      class="copyright">ContactsManager - Web APIs | MDN</a>
+  </section>
+  <section id="" class="slide">
+    <h2>Хранение и управление данными</h2>
+    <div style="font-size: 0.6; line-height: 1.5" class="double">
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API">Background Tasks API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a></div>
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Contact_Picker_API">Contact Picker
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API ">Credential Management
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API">Encoding API</a></div>
+      <div>
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API">HTML Sanitizer
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/File_and_Directory_Entries_API">File and Directory
+          Entries API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API">File System Access API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Frame_Timing_API">Frame Timing API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API">Long Tasks API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API">Navigation Timing API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_API">Performance API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_Timeline">Performance Timeline</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API">Resource Timing API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_API">Storage API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">Web Authentication API</a>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers API</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2>Хранение и управление данными</h2>
+    <div style="font-size: 0.6; line-height: 1.5" class="double">
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API">Background Tasks API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a>
+      </div>
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Contact_Picker_API">Contact Picker
+            API</a></mark>
+      </div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API ">Credential Management
+          API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API">Encoding API</a>
+      </div>
+      <div style="opacity: 0.3">
+        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API">HTML Sanitizer
+            API</a></mark>
+      </div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/File_and_Directory_Entries_API">File and Directory
+          Entries API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API">File
+          System Access API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Frame_Timing_API">Frame Timing
+          API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API">Long Tasks
+          API</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Navigation_timing_API">Navigation Timing API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_API">Performance API</a></div>
+      <div style="opacity: 0.3"><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_Timeline">Performance Timeline</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API">Resource
+          Timing API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API">Storage
+          Access API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage_API">Storage API</a>
+      </div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API">Web
+          Authentication API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto
+          API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage
+          API</a></div>
+      <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers
+          API</a></div>
+    </div>
+  </section>
+  <section id="" class="slide">
+    <h2>Вместо выводов</h2>
+    <figure>
+      <blockquote>
+        <p style="margin-bottom: 0.5em">— Нельзя поверить в невозможное!</p>
+        <p style="margin-bottom: 0.5em">— Просто у тебя мало опыта, – заметила Королева. – В твоем возрасте я уделяла
+          этому полчаса каждый день! В иные дни я успевала поверить в десяток невозможностей до завтрака!</p>
+      </blockquote>
+      <figcaption>Льюис Кэрролл, «Алиса в стране чудес» </figcaption>
+    </figure>
+  </section>
+  <section id="" class="slide"><img src="pictures/webassembly.jpg" class="cover" /><a href="https://webassembly.org/"
+      class="copyright">WebAssembly</a>
+  </section>
+  <section id="theend" class="slide">
+    <p style="position: absolute; bottom: 5%" class="end-link"><a href="http://bit.ly/GDG_Minsk_API" target="_blank"
+        class="bigger">bit.ly/GDG_Minsk_API</a><br>Саша Шинкевич (<a href="https://twitter.com/neesoglasnaja"
+        target="_blank">@neesoglasnaja</a>)</p><img src="pictures/the_end.gif" style="min-height: 240%; max-width: none"
+      class="cover">
+  </section>
+  <div class="progress"></div>
+  <script src="shower/shower.js"></script>
+  <script src="highlight/highlight.pack.js"></script>
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
 </body>
+
 </html>
