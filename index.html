@@ -7,22 +7,93 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
-  <link rel="stylesheet" href="highlight/styles/github.css">
+  <link rel="stylesheet" href="highlight/styles/gruvbox-light.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <style>
     .shower {
-        --slide-ratio: calc(16 / 9);
+      --slide-ratio: calc(16 / 9);
+      --slide-side: 60px;
     }
-</style>
+
+    .shower.list .slide {
+      padding-top: 60px;
+    }
+
+    .slide {
+      padding-top: 45px;
+    }
+
+    .slide::before {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 25px 50px 25px;
+      border-color: transparent transparent #7581c1 transparent;
+      position: absolute;
+      top: 20px;
+      left: 950px;
+      content: '';
+    }
+
+    .slide::after {
+      color: #fff;
+      left: 950px;
+      top: 15px;
+      background-image: none;
+      font-size: 0.9em;
+    }
+
+    .slide a {
+      color: #7581c1;
+    }
+
+    .caption h1,
+    .slide h2 {
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    .slide h2.shout {
+      font-size: 125px;
+    }
+
+
+    .slide h2.question {
+      color: #fff;
+      text-shadow: 0 0 10px #2b2727, 0 0 20px #2b2727, 0 0 50px #7581c1, 0 0 80px #7581c1;
+      font-size: 60px;
+    }
+
+
+    #cover::after,
+    #cover::before {
+      display: none;
+    }
+
+    .logo {
+      display: inline-block;
+      max-width: 85px;
+      margin-right: 10px;
+    }
+
+    .progress::before {
+      background-color: #7581c1;
+    }
+  </style>
 </head>
 
 <body class="shower list">
   <header class="caption">
     <h1>Необычные браузерные API</h1>
   </header>
-  <section id="cver" class="slide">
-    <h2>Необычные браузерные API</h2>
-    <p>Саша Шинкевич (<a href="https://twitter.com/neesoglasnaja" target="_blank">@neesoglasnaja</a>)</p>
+  <section id="cover" class="slide" style="text-align: center;">
+    <h2 style="color: #fff; margin-top: 50px; margin-bottom: 5px; font-size: 70px;">Необычные браузерные API</h2>
+    <p style="color: #fff">Саша Шинкевич (<a style="color: #7581c1" href="https://twitter.com/neesoglasnaja"
+        target="_blank">@neesoglasnaja</a>)</p>
     <img src="pictures/cover.jpg" class="cover width" />
+    <a class="copyright" href="https://shows.disney.com/gravity-falls">Gravity Falls &copy; Disney</a>
   </section>
   <section id="" class="slide">
     <div style="margin-left: 50%; width: 60%; font-size: 0.8em">
@@ -35,13 +106,14 @@
         <li class="next">Выгорела</li>
         <li class="next">Пока счастливая безработная</li>
       </ul>
-      <p style="margin-top: 70px" class="next"><img src="pictures/minskcss.png" class="logo"><img
+      <p style="margin-top: 40px; display: flex;" class="next"><img src="pictures/minskcss.png" class="logo"><img
           src="pictures/minskjs.png" class="logo"><img src="pictures/css-minsk-js.svg"
-          style="background-color: #2b2727; height: 75px" class="logo"><img src="pictures/fc.png" class="logo"></p>
+          style="background-color: #2b2727; height: 75px; padding: 5px; max-width: 75px;" class="logo"><img
+          src="pictures/fc.png" class="logo"></p>
     </div><img src="pictures/about-cover.jpg" class="cover" />
   </section>
   <section id="" class="slide">
-    <h2 style="color:#fff; font-size: 50px; padding-left: 50%; padding-top: 10%">Что же такое эти ваши &#171;браузерные
+    <h2 style="color:#fff; font-size: 50px; padding-left: 47%; padding-top: 10%">Что же такое эти ваши &#171;браузерные
       API&#187?</h2><img src="pictures/philosoraptor.jpg" class="cover" />
   </section>
   <section id="" class="slide">
@@ -57,8 +129,8 @@
       стилями</h2><img src="pictures/blur_cover.jpg" class="cover" />
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px" class="shout">Как узнать, что пользователь &#171;зумил&#187 страницу?</h2><img
-      src="pictures/what-if.jpg" class="cover" />
+    <h2 style="margin-top: -125px;" class="shout question">Как узнать, что пользователь &#171;зумил&#187&nbsp;страницу?</h2><img
+      src="pictures/covers/zoom.jpg" class="cover width" />
   </section>
   <section id="" class="slide">
     <div style="display:flex">
@@ -70,8 +142,8 @@
         (<a href="https://codepen.io/reinis">@reinis</a>)
         on <a href="https://codepen.io">CodePen</a>.
       </iframe><span class="next">
-        <video src="pictures/zoom_bad.mp4" autoplay loop width="40%" style="margin-left: 50px"></video><img
-          src="pictures/xz.jpg" style="position:absolute; right: 0; bottom: 0; width: 300px"></span>
+        <video src="pictures/zoom_bad.mp4" autoplay loop controls width="230px" style="margin-left: 50px"></video><img
+          src="pictures/xz.jpg" style="position:absolute; right: 0; bottom: 0; width: 250px"></span>
     </div><a href="https://codepen.io/reinis/pen/RooGOE" class="copyright">Simple browser zoom detect with jquery
       #codevember</a>
   </section>
@@ -102,7 +174,7 @@ const scale = VisualViewport.scale</code></pre>
     <div style="display:flex">
       <iframe height="500" style="width: 60%" scrolling="no"
         src="https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html"> </iframe>
-      <video src="pictures/zoom_no.mp4" loop autoplay width="25%" style="margin-left: 50px"></video>
+      <video src="pictures/zoom_no.mp4" loop autoplay controls width="230px" style="margin-left: 50px"></video>
     </div><a href="https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html" class="copyright">Example with
       hide on zoom</a>
   </section>
@@ -111,7 +183,7 @@ const scale = VisualViewport.scale</code></pre>
   </section>
   <section id="" class="slide">
     <h2>Манипуляции DOM и стилями</h2>
-    <div class="double">
+    <div class="" style="columns: 2;">
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">DOM</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Counter_Styles">CSS Counter Styles</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API">CSS Font Loading API</a>
@@ -136,7 +208,7 @@ const scale = VisualViewport.scale</code></pre>
   </section>
   <section id="" class="slide">
     <h2>Манипуляции DOM и стилями</h2>
-    <div class="double">
+    <div class="" style="columns: 2;">
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">DOM</a>
       </div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Counter_Styles">CSS Counter Styles</a></div>
@@ -166,12 +238,12 @@ const scale = VisualViewport.scale</code></pre>
     </div>
   </section>
   <section id="" class="slide">
-    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Передача данных и
-      состояние сети</h2><img src="pictures/blur_cover.jpg" class="cover" />
+    <h2 style="color: #fff; text-shadow: 0 0 20px #333, 0 0 40px #333, 0 0 60px #333;" class="shout">Передача данных
+      и&nbsp;состояние сети</h2><img src="pictures/blur_cover.jpg" class="cover" />
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px" class="shout">Как общаться между вкладками, не&nbsp;используя сеть?</h2><img
-      src="pictures/what-if.jpg" class="cover" />
+    <h2 style="margin-top: -150px;" class="shout question">Как общаться между вкладками, не&nbsp;используя сеть?</h2><img
+      src="pictures/covers/broadcast.png" class="cover" />
   </section>
   <section id="" class="slide">
     <h2>Broadcast Channel API</h2><img src="pictures/broadcastchannel.png" style="width: 80%; margin-left: 100px">
@@ -197,7 +269,7 @@ const scale = VisualViewport.scale</code></pre>
   </section>
   <section id="" class="slide">
     <h2>Передача данных и состояние сети</h2>
-    <div class="double">
+    <div class="" style=" font-size: 0.9em; columns: 2;">
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Fetch_API">Background Fetch API</a>
       </div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API">Beacon API</a></div>
@@ -215,8 +287,7 @@ const scale = VisualViewport.scale</code></pre>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-sent events</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API">Streams API</a></div>
-      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web
-          Periodic Background Synchronization API</a></div>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web&nbsp;Periodic&nbsp;Background&nbsp;Synchronization&nbsp;API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL_API">URL API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a></div>
@@ -224,7 +295,7 @@ const scale = VisualViewport.scale</code></pre>
   </section>
   <section id="" class="slide">
     <h2>Передача данных и состояние сети</h2>
-    <div class="double">
+    <div class="" style="font-size: 0.9em; columns: 2;">
       <div style="opacity: 0.3"><a
           href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Fetch_API">Background Fetch API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API">Beacon API</a></div>
@@ -246,8 +317,7 @@ const scale = VisualViewport.scale</code></pre>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-sent events</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API">Streams API</a></div>
       <div style="opacity: 0.3"><a
-          href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web
-          Periodic Background Synchronization API</a></div>
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web&nbsp;Periodic&nbsp;Background&nbsp;Synchronization&nbsp;API</a></div>
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL_API">URL API</a></div>
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a>
       </div>
@@ -260,8 +330,7 @@ const scale = VisualViewport.scale</code></pre>
     </h2><img src="pictures/blur_cover.jpg" class="cover" />
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Можно ли распознать
-      QR&#8209;код&nbsp;из&nbsp;браузера?</h2><img src="pictures/what-if.jpg" class="cover" />
+    <h2 style="margin-top: -170px" class="shout question">Можно ли распознать&nbsp;QR&#8209;код из&nbsp;браузера?</h2><img src="pictures/covers/code.jpg" class="cover" />
   </section>
   <section id="" class="slide">
     <h2 class="shout"><a href="https://qrsnapper.appspot.com/">Считываем код телефоном</a></h2><a
@@ -269,7 +338,7 @@ const scale = VisualViewport.scale</code></pre>
       Detection Using the Shape Detection API</a>
   </section>
   <section id="" class="slide">
-    <video src="pictures/qrcode.mp4" autoplay loop width="230px" style="margin-left: 300px"></video>
+    <video src="pictures/qrcode.mp4" autoplay loop controls width="230px" style="margin-left: 300px"></video>
   </section>
   <section id="" class="slide">
     <h2>Barcode Detection API</h2>
@@ -282,33 +351,8 @@ const scale = VisualViewport.scale</code></pre>
       href="https://caniuse.com/mdn-api_barcodedetector" class="copyright">Caniuse — BarcodeDetector API</a>
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Хочу смотреть видео и&nbsp;одновременно смотреть
-      другие вкладки</h2><img src="pictures/what-if.jpg" class="cover" />
-  </section>
-  <section id="" class="slide">
-    <iframe height="450" style="width: 520px; margin-left: 160px" scrolling="no" title="Picture-in-Picture demo"
-      src="https://codepen.io/ayoisaiah/embed/dyyeQVG?default-tab=result&amp;theme-id=light" frameborder="no"
-      loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a
-        href="https://codepen.io/ayoisaiah/pen/dyyeQVG">Picture-in-Picture demo</a> by Ayooluwa (<a
-        href="https://codepen.io/ayoisaiah">@ayoisaiah</a>)
-      on <a href="https://codepen.io">CodePen</a>.
-    </iframe>
-  </section>
-  <section id="" class="slide">
-    <h2>Picture-in-Picture API</h2>
-    <pre><code class="js">// Открыть окно с видео
-video(src="").requestPictureInPicture()
-          // .catch(e => { ... });</code></pre>
-    <pre class="js next"><code>// Закрыть окно с видео
-video(src="").exitPictureInPicture()
-           //.catch(e => { ... });</code></pre>
-  </section>
-  <section id="" class="slide"><img src="pictures/picture-in_use.jpg" class="cover" /><a
-      href="https://caniuse.com/picture-in-picture" class="copyright">Caniuse — Picture-in-Picture API</a>
-  </section>
-  <section id="" class="slide">
     <h2>Графика и медиа</h2>
-    <div style="folt-size: 0.7em; line-height: 1.5" class="double">
+    <div style="font-size: 0.95em; line-height: 1.5;columns: 2;">
       <div>
         <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API">Barcode Detection
             API</a></mark>
@@ -327,9 +371,8 @@ video(src="").exitPictureInPicture()
           API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Image_Capture_API">MediaStream Image
           Capture API</a></div>
-      <div>
-        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API">Picture-in-Picture
-            API</a></mark>
+      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API">Picture-in-Picture
+            API</a>
       </div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API">Presentation API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API">Screen Capture API</a></div>
@@ -342,13 +385,12 @@ video(src="").exitPictureInPicture()
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">Web Speech API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">Web Video Text Tracks Format</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API"
-          style="text-decoration:line-through ">WebVR API</a></div>
-      <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API">WebXR Device API</a></div>
+          style="text-decoration:line-through ">WebVR API</a>&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API">WebXR Device API</a></div>
     </div>
   </section>
   <section id="" class="slide">
     <h2>Графика и медиа</h2>
-    <div style="folt-size: 0.7em; line-height: 1.5" class="double">
+    <div style="font-size: 0.95em; line-height: 1.5;columns: 2;">
       <div style="opacity: 0.3">
         <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API">Barcode Detection
             API</a></mark>
@@ -372,9 +414,9 @@ video(src="").exitPictureInPicture()
       <div style="opacity: 0.3"><a
           href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Image_Capture_API">MediaStream Image
           Capture API</a></div>
-      <div style="opacity: 0.3">
-        <mark><a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API">Picture-in-Picture
-            API</a></mark>
+      <div>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API">Picture-in-Picture
+            API</a>
       </div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API">Presentation API</a></div>
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API">Screen
@@ -393,7 +435,7 @@ video(src="").exitPictureInPicture()
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">Web Video Text
           Tracks Format</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API"
-          style="text-decoration:line-through ">WebVR API</a> <a
+          style="text-decoration:line-through ">WebVR API</a>&nbsp;<a
           href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API">WebXR Device API</a></div>
     </div>
   </section>
@@ -408,8 +450,8 @@ video(src="").exitPictureInPicture()
       class="copyright">George Mandis — Make More Than Music with Tiny Computers, JavaScript and MIDI (Youtube)</a>
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Как заставить телефон делать &#171;вж-вж-вж-вж&#187;?
-    </h2><img src="pictures/what-if.jpg" class="cover" />
+    <h2 style="margin-top: -50px" class="shout question">Как заставить телефон делать &#171;вж&#8209;вж&#8209;вж&#8209;вж&#187;?
+    </h2><img src="pictures/covers/phone.png" class="cover width" />
   </section>
   <section id="" class="slide  shout">
     <h2 class="shout"><a href="https://neesoglasnaja.github.io/DiceRoller/dist/pwa/index.html">Бросим кубики</a></h2>
@@ -430,7 +472,7 @@ video(src="").exitPictureInPicture()
   </section>
   <section id="" class="slide">
     <h2>Управление устройствами</h2>
-    <div class="double">
+    <div class="" style="columns: 2;">
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API">Gamepad API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation API</a></div>
@@ -452,7 +494,7 @@ video(src="").exitPictureInPicture()
   </section>
   <section id="" class="slide">
     <h2>Управление устройствами</h2>
-    <div class="double">
+    <div class="" style="columns: 2;">
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">Clipboard API</a></div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API">Gamepad API</a></div>
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">Geolocation
@@ -482,24 +524,24 @@ video(src="").exitPictureInPicture()
       и&nbsp;управление данными</h2><img src="pictures/blur_cover.jpg" class="cover" />
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Как оградить сайт от &#171;опасного кода&#187
-      в&nbsp;комментариях?</h2><img src="pictures/what-if.jpg" class="cover" />
+    <h2 style="" class="shout question">Как оградить сайт от &#171;опасного кода&#187
+      в&nbsp;комментариях?</h2><img src="pictures/covers/guard.jpg" class="cover" />
   </section>
   <section id="" class="slide"><img src="pictures/sanitize_npm.jpg" class="cover" /><a
       href="https://www.npmjs.com/package/sanitize-html" class="copyright">sanitize-html </a>
   </section>
   <section id="" class="slide">
-    <h2 class="shout"><a href="https://sanitizer-api.dev/">Запретим опасный код</a></h2>
+    <h2 class="shout"><a href="https://sanitizer-api.dev/">Запретим опасный&nbsp;код</a></h2>
   </section>
   <section id="" class="slide"><img src="pictures/sanitizer_use.jpg" class="cover" /><a
       href="https://caniuse.com/mdn-api_sanitizer" class="copyright">Caniuse — Sanitizer API</a>
   </section>
   <section id="" class="slide">
-    <h2 style="font-size: 100px; margin-top: -50px" class="shout">Хочу доступ к контактам, как в мобильных приложениях
-    </h2><img src="pictures/what-if.jpg" class="cover" />
+    <h2 style="margin-top: -150px" class="shout question">Хочу доступ к контактам, как&nbsp;в&nbsp;мобильных приложениях
+    </h2><img src="pictures/covers/contacts.jpg" class="cover width" />
   </section>
   <section id="" class="slide">
-    <video src="pictures/contact.mp4" width="230" style="margin-left: 350px" loop autoplay></video><a
+    <video src="pictures/contact.mp4" width="230" style="margin-left: 350px" loop autoplay controls></video><a
       href="https://contact-picker.glitch.me/" class="copyright">Contact Picker API Demo </a>
   </section>
   <section id="" class="slide">
@@ -507,9 +549,7 @@ video(src="").exitPictureInPicture()
       <pre><code>const supported = ('contacts' in navigator
    && 'ContactsManager' in window);</code></pre>
       <pre class="next"><code>const props = ['name', 'email', 'tel', 'address', 'icon'];
-const opts = { multiple: true };
- 
-navigator.contacts.select(props, opts)
+const opts = { multiple: true };</code></pre><pre class="next"><code>navigator.contacts.select(props, opts)
   .then(contacts => { ... })
   .catch(e => { ... })</code></pre></span>
   </section>
@@ -519,7 +559,7 @@ navigator.contacts.select(props, opts)
   </section>
   <section id="" class="slide">
     <h2>Хранение и управление данными</h2>
-    <div style="font-size: 0.6; line-height: 1.5" class="double">
+    <div style="font-size: 0.6; line-height: 1.5; columns: 2;">
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API">Background Tasks API</a>
       </div>
       <div><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a></div>
@@ -559,7 +599,7 @@ navigator.contacts.select(props, opts)
   </section>
   <section id="" class="slide">
     <h2>Хранение и управление данными</h2>
-    <div style="font-size: 0.6; line-height: 1.5" class="double">
+    <div style="font-size: 0.6; line-height: 1.5; columns: 2;">
       <div style="opacity: 0.3"><a
           href="https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API">Background Tasks API</a></div>
       <div style="opacity: 0.3"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console_API">Console API</a>
@@ -610,23 +650,24 @@ navigator.contacts.select(props, opts)
   </section>
   <section id="" class="slide">
     <h2>Вместо выводов</h2>
-    <figure>
-      <blockquote>
+    <figure style="font-size: 0.8em; width: 70%">
+      <blockquote >
         <p style="margin-bottom: 0.5em">— Нельзя поверить в невозможное!</p>
-        <p style="margin-bottom: 0.5em">— Просто у тебя мало опыта, – заметила Королева. – В твоем возрасте я уделяла
+        <p style="margin-bottom: 1.3em">— Просто у тебя мало опыта, – заметила Королева. – В твоем возрасте я уделяла
           этому полчаса каждый день! В иные дни я успевала поверить в десяток невозможностей до завтрака!</p>
       </blockquote>
       <figcaption>Льюис Кэрролл, «Алиса в стране чудес» </figcaption>
     </figure>
+    <img src="pictures/hole.jpg" style=" height: 100%; position: absolute; top: 0;right: 0;">
   </section>
   <section id="" class="slide"><img src="pictures/webassembly.jpg" class="cover" /><a href="https://webassembly.org/"
       class="copyright">WebAssembly</a>
   </section>
   <section id="theend" class="slide">
-    <p style="position: absolute; bottom: 5%" class="end-link"><a href="http://bit.ly/GDG_Minsk_API" target="_blank"
-        class="bigger">bit.ly/GDG_Minsk_API</a><br>Саша Шинкевич (<a href="https://twitter.com/neesoglasnaja"
-        target="_blank">@neesoglasnaja</a>)</p><img src="pictures/the_end.gif" style="min-height: 240%; max-width: none"
-      class="cover">
+    <p style="position: absolute; bottom: 5%; color: #fff" class="end-link"><a href="http://bit.ly/RndTech_WebAPI"
+        target="_blank" class="bigger">bit.ly/RndTech_WebAPI</a><br>Саша Шинкевич (<a
+        href="https://twitter.com/neesoglasnaja" target="_blank">@neesoglasnaja</a>)</p><img src="pictures/the_end.gif"
+      style="min-height: 240%; max-width: none" class="cover">
   </section>
   <div class="progress"></div>
   <script src="shower/shower.js"></script>
