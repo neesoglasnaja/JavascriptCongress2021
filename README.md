@@ -1,5 +1,5 @@
 # Необычные браузерные API
 
-Знаете ли вы, что в 2021 году можно получить доступ к контактам на мобильном устройстве непосредственно из браузера? Или то, что искусственный интеллект, распознающий QR-коды, уже работает в мобильном Chrome? Не говоря о том, что классическая схема «клиент запрашивает— сервер отвечает», к которой мы привыкли — это отнюдь не единственное архитектурное решение для общения между сервером и клиентскими страницами. А если вам скажут, что вы можете подключить электронное пианино к ноутбуку и играть музыку прямо в браузере?
+How many front-end developers know that in 2021 it is possible to access contacts on a mobile device directly from the browser? Or that recognizing QR codes AI is already in your mobile Chrome? Apart from the fact that the classic "client requests - server responds" scheme we are used to is by no means the only architectural solution for communication between the server and the pages.
 
-Давайте разбираться, что умеют современные браузеры и как это может пригодиться в «обычных» проектах
+Let's figure out what modern browsers can do, and how they can help a "regular" project.
